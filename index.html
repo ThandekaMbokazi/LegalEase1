@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-scale: 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617; /* Slate-950 */
+            color: #f1f5f9;
+            font-size: calc(16px * var(--text-scale));
+        }
+        .large-text-mode {
+            --text-scale: 1.25;
+        }
+        .high-contrast-mode {
+            --tw-bg-opacity: 1 !important;
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        .high-contrast-mode .bg-slate-900,
+        .high-contrast-mode .bg-slate-950 {
+            background-color: #000000 !important;
+        }
+        .high-contrast-mode .border-white\/5,
+        .high-contrast-mode .border-white\/10 {
+            border-color: #ffffff !important;
+        }
+        .high-contrast-mode .text-slate-400,
+        .high-contrast-mode .text-slate-500 {
+            color: #ffffff !important;
+            opacity: 0.8;
+        }
+        .serif {
+            font-family: 'Playfair+Display', serif;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .legal-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 1)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Accessibility Focus Styles */
+        :focus-visible {
+            outline: 3px solid #fbbf24;
+            outline-offset: 4px;
+        }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0f172a;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* 
+           CRITICAL: Print System
+           This block ensures that window.print() correctly triggers a clean, 
+           multi-page PDF generation for legal documents.
+        */
+        @media print {
+            html, body {
+                height: auto !important;
+                overflow: visible !important;
+                background: white !important;
+                color: black !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            #root, main, .flex-1, .overflow-y-auto {
+                height: auto !important;
+                overflow: visible !important;
+                display: block !important;
+                background: white !important;
+            }
+            /* Hide all UI chrome */
+            header, nav, footer, button, .accessibility-tool, .auth-overlay, .no-print, .fixed, .absolute, .shadow-2xl { 
+                display: none !important; 
+            }
+            /* Reset colors for clarity */
+            .text-slate-200, .text-slate-300, .text-slate-400, .text-white { color: black !important; }
+            .bg-slate-900, .bg-slate-950, .bg-white\/5, .bg-white\/10 { 
+                background: white !important; 
+                border: 1px solid #eee !important;
+            }
+            .legal-gradient { background: none !important; }
+            .print-container { 
+                width: 100% !important; 
+                max-width: none !important;
+                margin: 0 !important; 
+                padding: 1.5cm !important; 
+                display: block !important;
+            }
+            .serif { font-family: 'Times New Roman', serif !important; }
+            @page { 
+                margin: 2cm; 
+                size: auto;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

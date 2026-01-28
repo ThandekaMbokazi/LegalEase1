@@ -1,0 +1,7 @@
+{
+  "name": "LegalEase: Legal & Policy Navigator",
+  "description": "An advanced AI-powered assistant designed to decode complex government documents and legal contracts into plain language, extracting risks, deadlines, and key obligations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
